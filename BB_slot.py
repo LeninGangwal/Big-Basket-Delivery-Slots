@@ -1,4 +1,3 @@
-import bs4
 
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities     
@@ -7,37 +6,36 @@ import time
 import os
 
 
-def getWFSlot(productUrl):
+def get_bb_slot(url):
    
-   driver = webdriver.Chrome(executable_path = "./chromedriver")
-   driver.get(productUrl)           
-   html = driver.page_source
-   soup = bs4.BeautifulSoup(html)
-   time.sleep(25)
-   no_open_slots = True
+   driver = webdriver.Chrome(executable_path = "./chromedriver")#bring the chromedriver exec to the script path
+   driver.get(url)
+   print "Please login using OTP and then wait for a while."
+   time.sleep(60)
 
 
-
-   while no_open_slots:
-      driver.get(productUrl)           
-      print("refreshed")
- 
-      time.sleep(4)
+   while 1:
+      driver.get(url)     
+      print "Trying to find a slot!"
       try:
          driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/section/div[3]/div[2]/div/div[6]/div[1]/div[1]/button").click()
-         html = driver.page_source
-         soup = bs4.BeautifulSoup(html)
-         print driver.current_url
+         time.sleep(5)  #driver take a few sec to update the new url
          if "checkout" in driver.current_url:
-            print "YEP!"
-            os.system('say "Slots for delivery opened!"')
-            time.sleep(600)
+            print "Found the slots!"
+            for i in range(60):
+               notify("Slots Available!", "Please go and choose the slots!")
+               os.system('say "Slots for delivery available!"')
+               time.sleep(20)
       except:
-         print "nope"
+         print "If this message pops up multiple times, please find the error and create a PR!"
          pass
+      print "No Slots found. Will retry again."
+      time.sleep(60)
 
-
-getWFSlot('https://www.bigbasket.com/basket/?ver=1')
-# getWFSlot('https://www.bigbasket.com/')
+def notify(title, text):
+    os.system("""
+              osascript -e 'display notification "{}" with title "{}"'
+              """.format(text, title))
+get_bb_slot('https://www.bigbasket.com/basket/?ver=1')
 
 
