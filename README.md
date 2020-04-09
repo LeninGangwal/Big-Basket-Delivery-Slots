@@ -17,5 +17,6 @@ This script uses python 2.7.
 4) Once a slot becomes available, a notification will pop up.
 
 
+Please star the repo if you find the script useful!
 
-I saw this idea for Amazon US and Whole Foods in this repo https://github.com/pcomputo/Whole-Foods-Delivery-Slot and decided to do the same for BigBasket, India. 
+(I saw this idea for Amazon US and Whole Foods in this repo https://github.com/pcomputo/Whole-Foods-Delivery-Slot and decided to do the same for BigBasket, India.)
