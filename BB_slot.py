@@ -16,10 +16,11 @@ def get_bb_slot(url):
 
    while 1:
       driver.get(url)     
+      time.sleep(2)
       print "Trying to find a slot!"
       try:
          driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/section/div[3]/div[2]/div/div[6]/div[1]/div[1]/button").click()
-         time.sleep(5)  #driver take a few sec to update the new url
+         time.sleep(3)  #driver take a few sec to update the new url
          if "checkout" in driver.current_url:
             print "Found the slots!"
             for i in range(60):
