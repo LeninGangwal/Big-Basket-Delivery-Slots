@@ -34,10 +34,10 @@ def get_bb_slot(url):
         time.sleep(60)
 
 def notify(title, text):
-    os.system("""
+    if os.name == 'posix':
+        os.system("""
               osascript -e 'display notification "{}" with title "{}"'
               """.format(text, title))
-    if os.name == 'posix':
         os.system('say "Slots for delivery available!"')
     elif os.name == 'Linux':
         os.system('spd-say "Slots for delivery available!"')
