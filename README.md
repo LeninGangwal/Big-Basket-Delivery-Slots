@@ -3,11 +3,10 @@ It's a major hassle to get delivery slots available on Big Basket due to the Cov
 This is a small utility script written to automate the process and notify you when a slot becomes available! 
 
 ## How to execute the script
-This script uses python 2.7.
+This script uses python 3.x.
 1) Checkout the repo 
 2) Run `pip install -r requirements`
-3) If you don't have chromedriver installed, download it from https://chromedriver.chromium.org/downloads. (Make sure the version of your driver is same as your browser. You can check out your browser's major version in the Menu `About Chrome`. 
-4) Move the driver to the directory of the script and then run the script `python BB_slot.py`.
+3) Run the script with `python3 BB_slot.py`
 
 
 ## How to proceed further
@@ -20,3 +19,6 @@ This script uses python 2.7.
 Please star the repo if you find the script useful!
 
 (I saw this idea for Amazon US and Whole Foods in this repo https://github.com/pcomputo/Whole-Foods-Delivery-Slot and decided to do the same for BigBasket, India.)
+
+## Disclaimer
+This code is intended for educational purposes only, and should not be used to violate BigBasket's usage terms and conditions. Please refer to Big Basket's terms and conditions [here](https://www.bigbasket.com/terms-and-conditions/).
