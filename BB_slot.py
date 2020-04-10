@@ -21,17 +21,20 @@ def get_bb_slot(url):
         print("Trying to find a slot!")
         try:
             driver.find_element_by_xpath("//button[@id = 'checkout']").click()
-            time.sleep(3)  #driver take a few sec to update the new url
-            if "checkout" in driver.current_url:
+
+            time.sleep(5)  #driver take a few sec to update the new url
+            src = driver.page_source
+            if "checkout" in driver.current_url and not "Unfortunately, we do not have" in src:
                 print("Found the slots!")
                 for i in range(60):
                      notify("Slots Available!", "Please go and choose the slots!")
                      time.sleep(20)
-        except:
+        except Exception  as e:
             print("If this message pops up multiple times, please find the error and create a PR!")
+            print (e)
             pass
         print("No Slots found. Will retry again.")
-        time.sleep(60)
+        time.sleep(50)
 
 def notify(title, text):
     if os.name == 'posix':
