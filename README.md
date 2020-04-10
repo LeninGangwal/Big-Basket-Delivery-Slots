@@ -19,3 +19,6 @@ This script uses python 3.x.
 Please star the repo if you find the script useful!
 
 (I saw this idea for Amazon US and Whole Foods in this repo https://github.com/pcomputo/Whole-Foods-Delivery-Slot and decided to do the same for BigBasket, India.)
+
+## Disclaimer
+This code is intended for educational purposes only, and should not be used to violate BigBasket's usage terms and conditions. Please refer to Big Basket's terms and conditions [here](https://www.bigbasket.com/terms-and-conditions/).
