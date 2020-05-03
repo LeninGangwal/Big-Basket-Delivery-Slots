@@ -3,7 +3,7 @@ import chromedriver_autoinstaller
 import sys
 import time
 import os
-
+import datetime
 
 def get_bb_slot(url):
     # auto-install chromedriver 
@@ -18,14 +18,15 @@ def get_bb_slot(url):
     while 1:
         driver.get(url)     
         time.sleep(2)
-        print("Trying to find a slot!")
+        currentTime = datetime.datetime.now()
+        print(currentTime.strftime("%Y-%m-%d %H:%M:%S") + "  Trying to find a slot!")
         try:
             driver.find_element_by_xpath("//button[@id = 'checkout']").click()
-
             time.sleep(5)  #driver take a few sec to update the new url
             src = driver.page_source
             if "checkout" in driver.current_url and not "Unfortunately, we do not have" in src:
-                print("Found the slots!")
+                currentTime = datetime.datetime.now()
+                print(currentTime.strftime("%Y-%m-%d %H:%M:%S") + "  Found the slots!")
                 for i in range(60):
                      notify("Slots Available!", "Please go and choose the slots!")
                      time.sleep(20)
@@ -33,7 +34,8 @@ def get_bb_slot(url):
             print("If this message pops up multiple times, please find the error and create a PR!")
             print (e)
             pass
-        print("No Slots found. Will retry again.")
+        currentTime = datetime.datetime.now()
+        print(currentTime.strftime("%Y-%m-%d %H:%M:%S") + "  No Slots found. Will retry again.")
         time.sleep(50)
 
 def notify(title, text):
