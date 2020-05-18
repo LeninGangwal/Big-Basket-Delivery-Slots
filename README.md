@@ -5,7 +5,7 @@ This is a small utility script written to automate the process and notify you wh
 ## How to execute the script
 This script uses python 3.x.
 1) Clone the repo 
-2) Run `pip install -r requirements`
+2) Run `pip3 install -r requirements`
 3) Run the script with `python3 BB_slot.py`
 
 
